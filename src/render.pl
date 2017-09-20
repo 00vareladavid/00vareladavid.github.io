@@ -15,10 +15,12 @@ my $filename = shift;
 die "No input specified." unless defined $filename;
 
 if($filename =~ m[(.*)\.md]) {
-  system(join ' ',("pandoc",
-                   "-s",
+  system(join ' ',(
+                   "pandoc",
+                   "-s ",
                    "-o ${baseDir}/$1${extension}",
-                   $filename));
+                   $filename,
+                   ));
 } else {
   die "Invalid filename [$filename]: $!";
 }

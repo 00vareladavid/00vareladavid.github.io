@@ -4,8 +4,7 @@
 @import url('font/fira/stylesheet.css');
 
 /* general */
-body {background-color: #e0dbdb; color: #3d3333; font-family: 'open_sansregular', sans-serif;
-     font-size: 21px}
+body {background-color: #e0dbdb; color: #3d3333; font-family: 'open_sansregular', sans-serif;}
 
 a {color: #455a6f; font-weight: bold;}
 a:hover {color: #40566a;}

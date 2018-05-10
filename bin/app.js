@@ -66,7 +66,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -144,7 +144,7 @@ eval("var m = __webpack_require__(/*! mithril */ \"./node_modules/mithril/mithri
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var m = __webpack_require__(/*! mithril */ \"./node_modules/mithril/mithril.js\");\n    var PostMap = {\n      all_post: {\n    \"54921e87-1e92-4fcd-a9ae-2a80f08e8f62.md\":m(\".container\", [m(\"h1\", ['this is how I did something usefull',]),m(\"ul\", [m(\"li\", ['cool',]),m(\"li\", ['hai',]),m(\"li\", ['hai',]),]),]),\"7307b7b3-e8b8-43d3-8924-b4f1d3fbcbc5.md\":m(\".container\", [m(\"h1\", ['something else foo',]),m(\"ul\", [m(\"li\", ['bar',]),m(\"li\", ['baz',]),]),]),},\n    focused: m(\"hello\"),\n    load: function (name) {\n        PostMap.focused = PostMap.all_post[name];\n    },\n    };\n    module.exports = PostMap;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvbW9kZWwvUG9zdE1hcC5qcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9tb2RlbC9Qb3N0TWFwLmpzP2ZjZTIiXSwic291cmNlc0NvbnRlbnQiOlsidmFyIG0gPSByZXF1aXJlKFwibWl0aHJpbFwiKTtcbiAgICB2YXIgUG9zdE1hcCA9IHtcbiAgICAgIGFsbF9wb3N0OiB7XG4gICAgXCI1NDkyMWU4Ny0xZTkyLTRmY2QtYTlhZS0yYTgwZjA4ZThmNjIubWRcIjptKFwiLmNvbnRhaW5lclwiLCBbbShcImgxXCIsIFsndGhpcyBpcyBob3cgSSBkaWQgc29tZXRoaW5nIHVzZWZ1bGwnLF0pLG0oXCJ1bFwiLCBbbShcImxpXCIsIFsnY29vbCcsXSksbShcImxpXCIsIFsnaGFpJyxdKSxtKFwibGlcIiwgWydoYWknLF0pLF0pLF0pLFwiNzMwN2I3YjMtZThiOC00M2QzLTg5MjQtYjRmMWQzZmJjYmM1Lm1kXCI6bShcIi5jb250YWluZXJcIiwgW20oXCJoMVwiLCBbJ3NvbWV0aGluZyBlbHNlIGZvbycsXSksbShcInVsXCIsIFttKFwibGlcIiwgWydiYXInLF0pLG0oXCJsaVwiLCBbJ2JheicsXSksXSksXSksfSxcbiAgICBmb2N1c2VkOiBtKFwiaGVsbG9cIiksXG4gICAgbG9hZDogZnVuY3Rpb24gKG5hbWUpIHtcbiAgICAgICAgUG9zdE1hcC5mb2N1c2VkID0gUG9zdE1hcC5hbGxfcG9zdFtuYW1lXTtcbiAgICB9LFxuICAgIH07XG4gICAgbW9kdWxlLmV4cG9ydHMgPSBQb3N0TWFwOyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/model/PostMap.js\n");
+eval("var m = __webpack_require__(/*! mithril */ \"./node_modules/mithril/mithril.js\");\n    var PostMap = {\n      all_post: {\n    \"bd919001-18e8-413d-8c76-ff1a3bb576eb.md\":m(\".container\", [m(\"h1\", ['this is a test post',]),m(\"ul\", [m(\"li\", ['i just',]),m(\"li\", ['want to see if things work right',]),m(\"li\", ['hopefully',]),]),]),},\n    focused: m(\"hello\"),\n    load: function (name) {\n        PostMap.focused = PostMap.all_post[name];\n    },\n    };\n    module.exports = PostMap;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvbW9kZWwvUG9zdE1hcC5qcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy9tb2RlbC9Qb3N0TWFwLmpzP2ZjZTIiXSwic291cmNlc0NvbnRlbnQiOlsidmFyIG0gPSByZXF1aXJlKFwibWl0aHJpbFwiKTtcbiAgICB2YXIgUG9zdE1hcCA9IHtcbiAgICAgIGFsbF9wb3N0OiB7XG4gICAgXCJiZDkxOTAwMS0xOGU4LTQxM2QtOGM3Ni1mZjFhM2JiNTc2ZWIubWRcIjptKFwiLmNvbnRhaW5lclwiLCBbbShcImgxXCIsIFsndGhpcyBpcyBhIHRlc3QgcG9zdCcsXSksbShcInVsXCIsIFttKFwibGlcIiwgWydpIGp1c3QnLF0pLG0oXCJsaVwiLCBbJ3dhbnQgdG8gc2VlIGlmIHRoaW5ncyB3b3JrIHJpZ2h0JyxdKSxtKFwibGlcIiwgWydob3BlZnVsbHknLF0pLF0pLF0pLH0sXG4gICAgZm9jdXNlZDogbShcImhlbGxvXCIpLFxuICAgIGxvYWQ6IGZ1bmN0aW9uIChuYW1lKSB7XG4gICAgICAgIFBvc3RNYXAuZm9jdXNlZCA9IFBvc3RNYXAuYWxsX3Bvc3RbbmFtZV07XG4gICAgfSxcbiAgICB9O1xuICAgIG1vZHVsZS5leHBvcnRzID0gUG9zdE1hcDsiXSwibWFwcGluZ3MiOiJBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./src/model/PostMap.js\n");
 
 /***/ }),
 
@@ -177,7 +177,20 @@ eval("var m = __webpack_require__(/*! mithril */ \"./node_modules/mithril/mithri
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var m = __webpack_require__(/*! mithril */ \"./node_modules/mithril/mithril.js\");\n        module.exports = {\n          view: function() {\n            return m(\".container\", [m(\"p\", [m(\"a.large-link\", {href: \"/post/54921e87-1e92-4fcd-a9ae-2a80f08e8f62.md\", oncreate: m.route.link}, ['how i did something usefull',]),'\\n',m(\"a.large-link\", {href: \"/post/7307b7b3-e8b8-43d3-8924-b4f1d3fbcbc5.md\", oncreate: m.route.link}, ['another old post',]),'\\n',]),]);\n          }\n        };\n        //# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvdmlldy9Qb3N0TGlzdC5qcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy92aWV3L1Bvc3RMaXN0LmpzP2VkMTYiXSwic291cmNlc0NvbnRlbnQiOlsidmFyIG0gPSByZXF1aXJlKFwibWl0aHJpbFwiKTtcbiAgICAgICAgbW9kdWxlLmV4cG9ydHMgPSB7XG4gICAgICAgICAgdmlldzogZnVuY3Rpb24oKSB7XG4gICAgICAgICAgICByZXR1cm4gbShcIi5jb250YWluZXJcIiwgW20oXCJwXCIsIFttKFwiYS5sYXJnZS1saW5rXCIsIHtocmVmOiBcIi9wb3N0LzU0OTIxZTg3LTFlOTItNGZjZC1hOWFlLTJhODBmMDhlOGY2Mi5tZFwiLCBvbmNyZWF0ZTogbS5yb3V0ZS5saW5rfSwgWydob3cgaSBkaWQgc29tZXRoaW5nIHVzZWZ1bGwnLF0pLCdcXG4nLG0oXCJhLmxhcmdlLWxpbmtcIiwge2hyZWY6IFwiL3Bvc3QvNzMwN2I3YjMtZThiOC00M2QzLTg5MjQtYjRmMWQzZmJjYmM1Lm1kXCIsIG9uY3JlYXRlOiBtLnJvdXRlLmxpbmt9LCBbJ2Fub3RoZXIgb2xkIHBvc3QnLF0pLCdcXG4nLF0pLF0pO1xuICAgICAgICAgIH1cbiAgICAgICAgfTtcbiAgICAgICAgIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/view/PostList.js\n");
+eval("var m = __webpack_require__(/*! mithril */ \"./node_modules/mithril/mithril.js\");\n        module.exports = {\n          view: function() {\n            return m(\".container\", [m(\"p\", [m(\"a.large-link\", {href: \"/post/bd919001-18e8-413d-8c76-ff1a3bb576eb.md\", oncreate: m.route.link}, ['test post',]),'\\n',]),]);\n          }\n        };\n        //# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9zcmMvdmlldy9Qb3N0TGlzdC5qcy5qcyIsInNvdXJjZXMiOlsid2VicGFjazovLy8uL3NyYy92aWV3L1Bvc3RMaXN0LmpzP2VkMTYiXSwic291cmNlc0NvbnRlbnQiOlsidmFyIG0gPSByZXF1aXJlKFwibWl0aHJpbFwiKTtcbiAgICAgICAgbW9kdWxlLmV4cG9ydHMgPSB7XG4gICAgICAgICAgdmlldzogZnVuY3Rpb24oKSB7XG4gICAgICAgICAgICByZXR1cm4gbShcIi5jb250YWluZXJcIiwgW20oXCJwXCIsIFttKFwiYS5sYXJnZS1saW5rXCIsIHtocmVmOiBcIi9wb3N0L2JkOTE5MDAxLTE4ZTgtNDEzZC04Yzc2LWZmMWEzYmI1NzZlYi5tZFwiLCBvbmNyZWF0ZTogbS5yb3V0ZS5saW5rfSwgWyd0ZXN0IHBvc3QnLF0pLCdcXG4nLF0pLF0pO1xuICAgICAgICAgIH1cbiAgICAgICAgfTtcbiAgICAgICAgIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSIsInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/view/PostList.js\n");
+
+/***/ }),
+
+/***/ 0:
+/*!*******************************!*\
+  !*** multi ./src/index.js  2 ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! /home/nur0n/pkg/blog/src/index.js */"./src/index.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module \" 2\""); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
 
 /***/ })
 

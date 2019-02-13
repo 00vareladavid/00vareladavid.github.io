@@ -51,9 +51,9 @@ code {padding: 0.1em; background-color: rgba(0,0,0,.04);}
 
 pre {
     color: #333333;
-    background-color: #eae1e1;
-    border: 2px solid #dad1d1;
-    border-radius: 2px;
+    background-color: #e6e0e0;
+    border: 1px solid #ddd4d4;
+    border-radius: 1px;
     padding: 0.5em;
     overflow: auto;
 }
@@ -170,7 +170,7 @@ nav.toc input {
     margin: 1.2em auto;
     padding: 0 1em;
     border: 1px solid #c9c9c9;
-    border-radius: 1em;
+    border-radius: 2px;
     font-size: .83em;
 }
 

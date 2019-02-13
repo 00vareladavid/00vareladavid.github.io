@@ -1,14 +1,14 @@
 /* fonts */
-/* #f0eaea */
+/* #f2eeee */
 /* #463939 */
 /* #393946 */
 /* #2d3339 */
 /* #928b76 */
-body, input {background-color: #f0eaea; color: #463939; font-family: 'open_sansregular', sans-serif;
-	     font-size: 16px;}
+body, input {background-color: #f2eeee; color: #463939; font-family: 'open_sansregular', sans-serif;
+	     font-size: 17px;}
 a {color: #565667; font-weight: bold; text-decoration: none;}
 a:hover {color: #393946; text-decoration: none;}
-hr {border: 0; border-top: 1px solid #f0eaea;}
+hr {border: 0; border-top: 1px solid #f2eeee;}
 
 pre, code, kbd {font-family: 'Roboto Mono', Monaco, courier, monospace; font-size: 0.90em;}
 pre code {font-size: 1em;}
@@ -52,8 +52,8 @@ code {padding: 0.1em; background-color: rgba(0,0,0,.04);}
 
 pre {
     color: #333333;
-    background-color: #e6e0e0;
-    border: 1px solid #ddd4d4;
+    background-color: #ebe5e5;
+    border: 1px solid #e5dcdc;
     border-radius: 1px;
     padding: 0.5em;
     overflow: auto;
@@ -111,7 +111,7 @@ nav.toc {
     flex-flow: column nowrap;
     overflow-y: auto;
     padding: 1em 0 0 0;
-    background-color: #f0eaea;
+    background-color: #f2eeee;
     color: #645b4e;
 }
 
@@ -216,7 +216,7 @@ nav.toc ul.internal a {
 
 nav.toc ul.internal a:hover {
     color: #565667;
-    background-color: #f0eaea;
+    background-color: #f2eeee;
     font-weight: bold;
 }
 
@@ -253,7 +253,7 @@ nav.toc ul ul ul .toctext {
 
 nav.toc li.current > .toctext {
     color: #404040;
-    background-color: #f0eaea;
+    background-color: #f2eeee;
     font-weight: bold;
 }
 

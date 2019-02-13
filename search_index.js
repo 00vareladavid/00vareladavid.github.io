@@ -88,4 +88,44 @@ var documenterSearchIndex = {"docs": [
     "text": "declarative is nice, but it can easily turn your code brittle\nonly use declarative for well understood operations\nfor example options\nfor complex (as in search space) operations (e.g. completions) use pocket function\nprovide some room for flexibility \"handler\""
 },
 
+{
+    "location": "systemd-nspawn/#",
+    "page": "systemd-nspawn setup",
+    "title": "systemd-nspawn setup",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "systemd-nspawn/#Setting-up-ssh-inside-of-systemd-nspawn-1",
+    "page": "systemd-nspawn setup",
+    "title": "Setting up ssh inside of systemd-nspawn",
+    "category": "section",
+    "text": ""
+},
+
+{
+    "location": "systemd-nspawn/#Motivation-1",
+    "page": "systemd-nspawn setup",
+    "title": "Motivation",
+    "category": "section",
+    "text": "The adoption of systemd by the major linux distributions   means that systemd-nspawn is the most painless way to run a container. I do most of my work inside of containers;   which means multiple interactive processes per container. It is cumbersome to interact with a container through a single, dumb IO stream. In general, there are two solutions to this problem:run a multiplexer (e.g. tmux) after an ssh connection is made\nconnect to the container using multiple ssh connections; one connection per processBoth options have strengths and weaknesses. Two weaknesses of terminal multiplexers:   they consume key-bindings   and they add complexity to the IO stream. I recommend setting up ssh for the added flexibility   even if you choose to run a multiplexer."
+},
+
+{
+    "location": "systemd-nspawn/#Instructions-1",
+    "page": "systemd-nspawn setup",
+    "title": "Instructions",
+    "category": "section",
+    "text": "Outside of the containermake sure the systemd-nspawn container is running: systemd-nspawn <...>Inside the containerinstall an ssh daemon: pacman -S openssh\nof course if you are not running arch, replace pacman with apt, yum, ...\nconfigure ssh:  a good starting point is this guide\ngenerate ssh keys locally\ntransfer keys to the container\nconfigure sshd\ndisable root login\ndisable password login\nenable the ssh daemon through systemd: systemctl enable sshd\ndo not forget to start the daemon!: systemctl start sshdOutside the containerlogin via ssh: ssh <username>@localhost"
+},
+
+{
+    "location": "systemd-nspawn/#TODO-1",
+    "page": "systemd-nspawn setup",
+    "title": "TODO",
+    "category": "section",
+    "text": "enable systemd-nspawn automatically"
+},
+
 ]}

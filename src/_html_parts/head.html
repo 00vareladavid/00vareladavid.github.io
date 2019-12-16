@@ -5,23 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{if hasmath}} {{insert head_katex.html }}     {{end}}
   {{if hascode}} {{insert head_highlight.html }}   {{end}}
-  <link rel="stylesheet" href="/css/judoc.css">
-  <link rel="stylesheet" href="/css/hypertext.css">
-  <!-- <link rel="icon" href="/assets/infra/favicon.png"> -->
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"/>
+  <link rel="stylesheet" href="/css/custom.css">
   {{isdef title}} <title>{{fill title}}</title>  {{end}}
 </head>
-<body>
-  <header>
-    <h1><a href="/">David E Varela</a></h1>
-    <!---
-    <nav>
-      <a href="/" class="current">Home</a>
-    | <a href="https://github.com/00vareladavid">GitHub</a>
-    | <a href="/pub/menu2.html">More goodies</a>
-    | <a href="/pub/menu3.html">Menu 3</a>
-      <hr/>
+<body class="bg-near-white black-80 sans-serif">
+  <header class="w-100 vh-50 mb6 pa6 bg-light-gray tc">
+    <nav class="f1">
+      <a class="black-70 fw6 hover-blue" href="/">David E Varela</a></li>
     </nav>
-    --->
   </header>
+  <div class="center mw8 tj-m">
 
 <!-- Content appended here -->

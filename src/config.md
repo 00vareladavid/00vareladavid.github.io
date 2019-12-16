@@ -5,7 +5,8 @@ The website_* must be defined for the RSS to work
 ------------------------------------------------------->
 @def website_title = "David E Varela"
 @def website_descr = ""
-@def website_url   = ""
+@def website_url   = "https://davidvarela.net"
+@def anchor_class  = ""
 
 @def author = "David E Varela"
 

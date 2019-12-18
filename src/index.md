@@ -11,7 +11,7 @@
 * [Julia Keyword Arguments](/pub/julia_keyword_arguments.html)
 * [Julia Keyword Arguments](/pub/julia_keyword_arguments.html)
 
-# Other places you can find me
+# Other accounts
 
 - [github](https://github.com/00vareladavid)
 - [stackoverflow](https://stackoverflow.com/users/7077117)

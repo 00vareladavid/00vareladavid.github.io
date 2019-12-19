@@ -720,7 +720,7 @@ code, .code { font-family: Consolas, monaco, monospace; }
 /* Sans-Serif Typefaces */
 .helvetica { font-family: 'helvetica neue', helvetica, sans-serif; }
 .avenir { font-family: 'avenir next', avenir, sans-serif; }
-.roboto { font-family: 'Roboto', sans-serif; }
+.roboto-condensed { font-family: 'Roboto Condensed', sans-serif; }
 .montserrat { font-family: 'Montserrat' , sans-serif; }
 /* Serif Typefaces */
 .athelas { font-family: athelas, georgia, serif; }
@@ -731,6 +731,7 @@ code, .code { font-family: Consolas, monaco, monospace; }
 .garamond { font-family: garamond, serif; }
 .baskerville { font-family: baskerville, serif; }
 .cormorant { font-family: 'Cormorant Garamond', georgia, times, serif; }
+.cinzel { font-family: 'Cinzel', serif; }
 /*
 
    FONT STYLE

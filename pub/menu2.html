@@ -9,14 +9,14 @@
    <!-- Syntax highlighting via Prism, note: restricted langs -->
 <link rel="stylesheet" href="/libs/highlight/github.min.css">
    
-  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Montserrat|Roboto+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel|Cormorant+Garamond|Montserrat|Open+Sans+Condensed&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/tachyons.css">
   <link rel="stylesheet" href="/css/custom.css">
    <title>More goodies</title>  
 </head>
 <body class="bg-white black-80">
   <header class="bg-near-white w-100 vh-25 flex items-center justify-center">
-    <nav class="montserrat">
+    <nav class="cinzel">
       <a class="f2 black-70 fw5 hover-dark-red ttu" href="/">David E Varela</a></li>
     </nav>
   </header>
@@ -25,10 +25,10 @@
 <!-- Content appended here -->
 
 <div class="jd-content">
-<h1 id="more_goodies"><a class="roboto-condensed f2 ttu black-80" href="/pub/menu2.html#more_goodies">More goodies</a></h1>
-<h2 id="more_markdown_support"><a class="roboto-condensed f3 ttu black-80" href="/pub/menu2.html#more_markdown_support">More markdown support</a></h2>
+<h1 id="more_goodies"><a class="open-sans-condensed f2 ttu black-80" href="/pub/menu2.html#more_goodies">More goodies</a></h1>
+<h2 id="more_markdown_support"><a class="open-sans-condensed f3 ttu black-80" href="/pub/menu2.html#more_markdown_support">More markdown support</a></h2>
 <p>The Julia Markdown parser in Julia&#39;s stdlib is not exactly complete and JuDoc strives to bring useful extensions that are either defined in standard specs such as Common Mark or that just seem like useful extensions.</p>
-<ul class="list">
+<ul class="list pl0" href=>
 <li><p>indirect references for instance <a class="dark-red" href="http://existentialcomics.com/">like so</a></p>
 </li>
 </ul>
@@ -36,7 +36,7 @@
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Krul.svg" alt="some image"></p>
 <p>some people find that useful as it allows referring multiply to the same link for instance.</p>
 
-<ul class="list">
+<ul class="list pl0" href=>
 <li><p>un-qualified code blocks and indented code blocks are allowed and are julia by default</p>
 </li>
 </ul>
@@ -46,14 +46,14 @@ b = a+1</code></pre> or</p>
 b = a+1</code></pre>
 <p>you can specify the default language with <code>@def lang &#61; &quot;julia&quot;</code>. If you actually want a &quot;plain&quot; code block, qualify it as <code>plaintext</code> like</p>
 <pre><code class="language-plaintext">so this is plain-text stuff.</code></pre>
-<h2 id="a_bit_more_highlighting"><a class="roboto-condensed f3 ttu black-80" href="/pub/menu2.html#a_bit_more_highlighting">A bit more highlighting</a></h2>
+<h2 id="a_bit_more_highlighting"><a class="open-sans-condensed f3 ttu black-80" href="/pub/menu2.html#a_bit_more_highlighting">A bit more highlighting</a></h2>
 <p>Extension of highlighting for <code>pkg</code> an <code>shell</code> mode in Julia:</p>
 <pre><code class="language-julia-repl">(v1.4) pkg> add JuDoc
 shell> blah
 julia> 1+1
 (Sandbox) pkg> resolve</code></pre>
 <p>you can tune the colouring etc via the</p>
-<ul class="list">
+<ul class="list pl0" href=>
 <li><p><code>hljs-meta</code> &#40;for <code>julia&gt;</code>&#41;</p>
 </li>
 <li><p><code>hljs-metas</code> &#40;for <code>shell&gt;</code>&#41;</p>

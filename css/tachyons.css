@@ -722,6 +722,9 @@ code, .code { font-family: Consolas, monaco, monospace; }
 .avenir { font-family: 'avenir next', avenir, sans-serif; }
 .roboto-condensed { font-family: 'Roboto Condensed', sans-serif; }
 .montserrat { font-family: 'Montserrat' , sans-serif; }
+.nunito { font-family: 'Nunito', sans-serif; }
+.open-sans { font-family: 'Open Sans', sans-serif; }
+.open-sans-condensed { font-family: 'Open Sans Condensed', sans-serif; }
 /* Serif Typefaces */
 .athelas { font-family: athelas, georgia, serif; }
 .georgia { font-family: georgia, serif; }

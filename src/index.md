@@ -8,5 +8,4 @@
 
 # Writing
 
-- [Julia Keyword Arguments](/pub/julia_keyword_arguments.html)
-- [Julia Keyword Arguments](/pub/julia_keyword_arguments.html)
+- [Getting Started with Pkg](/pub/getting_started_with_pkg.html)

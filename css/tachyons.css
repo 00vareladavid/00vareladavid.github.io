@@ -734,6 +734,9 @@ code, .code { font-family: Consolas, monaco, monospace; }
 .garamond { font-family: garamond, serif; }
 .baskerville { font-family: baskerville, serif; }
 .cormorant { font-family: 'Cormorant Garamond', georgia, times, serif; }
+.playfair { font-family: 'Playfair Display', serif; }
+.merriweather { font-family: 'Merriweather Black', serif; }
+.nanum { font-family: 'Nanum Myeongjo', serif; }
 .cinzel { font-family: 'Cinzel', serif; }
 /*
 

@@ -25,7 +25,7 @@ You can see which packages are available with the `status` command.
   (empty environment)
 ```
 
-You should see similar feeback on a fresh install.
+You should see similar feedback on a fresh install.
 `empty environment` means there are no packages available.
   
 To install a package, use the `add` command.

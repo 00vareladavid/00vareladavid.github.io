@@ -13,7 +13,7 @@ It downloads, installs, and organizes Julia packages.
 
 There are two ways to use Pkg: a REPL interface and a standard API.
 To enter the REPL interface,
-  fire up the Julia REPL and press the right square bracket key (`]`).
+  fire up Julia's REPL and press the right square bracket key (`]`).
 You should see the Pkg prompt (`pkg>`) replace the Julia prompt (`julia>`).
 
 ## Installing a Single Package

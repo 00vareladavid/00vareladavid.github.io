@@ -8,4 +8,4 @@
 
 # Writing
 
-- [Getting Started with Pkg](/pub/getting_started_with_pkg.html)
+- [draft] [Getting Started with Pkg](/pub/getting_started_with_pkg.html)

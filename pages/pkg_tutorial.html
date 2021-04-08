@@ -29,8 +29,8 @@ It installs and organizes packages.</p>
 <p>The goal of this tutorial is to cover basics concepts needed to use Pkg effectively.</p>
 <h1 class="f3 lh-title fira-sans-condensed">The Pkg REPL Interface</h1>
 <p>There are two ways to use Pkg: a REPL interface and a standard API.
-To use the REPL interface, enter the right square bracket <code class="fira-code br1 bg-near-white">]</code> in the Julia REPL.
-You should see the Pkg prompt <code class="fira-code br1 bg-near-white">pkg&gt;</code> replace the Julia prompt <code class="fira-code br1 bg-near-white">julia&gt;</code>.</p>
+To use the REPL interface, enter the right square bracket <code class="fira-code">]</code> in the Julia REPL.
+You should see the Pkg prompt <code class="fira-code">pkg&gt;</code> replace the Julia prompt <code class="fira-code">julia&gt;</code>.</p>
 <p>An example of starting the Julia REPL from the shell and switching to the Pkg REPL:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>[david@blue ~] $ julia
 julia&gt; 1 + 1
@@ -39,26 +39,26 @@ julia&gt; 1 + 1
 (v1.3) pkg&gt; 
 </code></pre>
 <h1 class="f3 lh-title fira-sans-condensed">Installing and Loading a Package</h1>
-<p>You can see available packages with the <code class="fira-code br1 bg-near-white">status</code> command.</p>
+<p>You can see available packages with the <code class="fira-code">status</code> command.</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
     Status `/tmp/depot/environments/v1.3/Project.toml`
   (empty environment)
 </code></pre>
 <p>You should see similar feedback on a fresh install.
-<code class="fira-code br1 bg-near-white">empty environment</code> means no packages are available.</p>
-<p>To install a package, use the <code class="fira-code br1 bg-near-white">add</code> command.
-Install the <code class="fira-code br1 bg-near-white">JSON</code> package:</p>
+<code class="fira-code">empty environment</code> means no packages are available.</p>
+<p>To install a package, use the <code class="fira-code">add</code> command.
+Install the <code class="fira-code">JSON</code> package:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; add JSON
 </code></pre>
 <p>You should see feedback as Pkg installs the package.
-Use <code class="fira-code br1 bg-near-white">status</code> to confirm the operation was successful:</p>
+Use <code class="fira-code">status</code> to confirm the operation was successful:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
 Status `/tmp/depot/environments/v1.3/Project.toml`
   [682c06a0] JSON v0.21.0
 </code></pre>
-<p>The feedback now shows <code class="fira-code br1 bg-near-white">JSON</code> is available.
-To use the package, return to the Julia REPL by pressing the <code class="fira-code br1 bg-near-white">BACKSPACE</code> key.
-You can now load <code class="fira-code br1 bg-near-white">JSON</code> and begin using it:</p>
+<p>The feedback now shows <code class="fira-code">JSON</code> is available.
+To use the package, return to the Julia REPL by pressing the <code class="fira-code">BACKSPACE</code> key.
+You can now load <code class="fira-code">JSON</code> and begin using it:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>julia&gt; import JSON
 
 julia&gt; JSON.parse(&quot;{\&quot;a_number\&quot; : 5.0, \&quot;an_array\&quot; : [\&quot;string\&quot;, 9]}&quot;)
@@ -68,8 +68,8 @@ Dict{String,Any} with 2 entries:
 </code></pre>
 <p>This is all you need to know if you quickly need to use a package:</p>
 <ol>
-<li><code class="fira-code br1 bg-near-white">add</code> will make a package available</li>
-<li><code class="fira-code br1 bg-near-white">import</code> will import a package.</li>
+<li><code class="fira-code">add</code> will make a package available</li>
+<li><code class="fira-code">import</code> will import a package.</li>
 </ol>
 <h1 class="f3 lh-title fira-sans-condensed">A closer look</h1>
 <p>What does it mean to <em>make a package available</em>?</p>
@@ -86,13 +86,13 @@ By enforcing this condition, Pkg not only avoids depenency hell, but also suppor
 To use Pkg effectively, allow it to automatically manage package installations, instead focus on declaring your intent.</p>
 <h1 class="f3 lh-title fira-sans-condensed">Basic operations</h1>
 <p>Let's try a few more operations.
-Recall that our example environment already declares <code class="fira-code br1 bg-near-white">JSON</code> as a dependency.</p>
-<p>You can print the set of declared dependencies with <code class="fira-code br1 bg-near-white">status</code>:</p>
+Recall that our example environment already declares <code class="fira-code">JSON</code> as a dependency.</p>
+<p>You can print the set of declared dependencies with <code class="fira-code">status</code>:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
 Status `/tmp/demo/Project.toml`
   [682c06a0] JSON v0.21.0
 </code></pre>
-<p>To declare more dependencies simply use <code class="fira-code br1 bg-near-white">add</code> again:</p>
+<p>To declare more dependencies simply use <code class="fira-code">add</code> again:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; add DataStructures
   Resolving package versions...
    Updating `~/demo/Project.toml`
@@ -101,13 +101,13 @@ Status `/tmp/demo/Project.toml`
   [864edb3b] + DataStructures v0.17.9
   [bac558e1] + OrderedCollections v1.1.0
 </code></pre>
-<p>Both <code class="fira-code br1 bg-near-white">JSON</code> and <code class="fira-code br1 bg-near-white">DataStructures</code> are now delcared as dependencies:</p>
+<p>Both <code class="fira-code">JSON</code> and <code class="fira-code">DataStructures</code> are now delcared as dependencies:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
 Status `~/demo/Project.toml`
   [864edb3b] DataStructures v0.17.9
   [682c06a0] JSON v0.21.0
 </code></pre>
-<p>To remove a declaration, use <code class="fira-code br1 bg-near-white">rm</code>:</p>
+<p>To remove a declaration, use <code class="fira-code">rm</code>:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; rm JSON
    Updating `~/demo/Project.toml`
   [682c06a0] - JSON v0.21.0
@@ -123,23 +123,23 @@ Status `~/demo/Project.toml`
 Status `~/demo/Project.toml`
   [864edb3b] DataStructures v0.17.9
 </code></pre>
-<p><code class="fira-code br1 bg-near-white">rm</code> will <em>not</em> uninstall a package from your system.
+<p><code class="fira-code">rm</code> will <em>not</em> uninstall a package from your system.
 Instead, it will update the declarations to reflect that you no longer depend on that package.
 Because of this property, Pkg operations tend to be fast: they usually only manipulate the declarations.</p>
 <p>You now know how to add, remove, and print dependency declarations.</p>
 <h1 class="f3 lh-title fira-sans-condensed">Pkg Projects</h1>
 <p>So far, I've refered to a <em>set of dependency delcarations</em> in the abstract sense.
 Pkg stores this set of declarations in a <strong class="b bg-washed-red">project file</strong>.</p>
-<p>You may have noticed that the first line of <code class="fira-code br1 bg-near-white">status</code> mentions some <code class="fira-code br1 bg-near-white">Project.toml</code> file.
+<p>You may have noticed that the first line of <code class="fira-code">status</code> mentions some <code class="fira-code">Project.toml</code> file.
 Let's take a look inside:</p>
 <pre class="pre fira-code br2 pa2 bg-near-white"><code>[david@blue ~/demo] $ cat Project.toml
 [deps]
 DataStructures = &quot;864edb3b-99cc-5e75-8d2d-829cb0a9cfe8&quot;
 </code></pre>
-<p>The <code class="fira-code br1 bg-near-white">deps</code> table maps the name of a dependency to a unique identifier
+<p>The <code class="fira-code">deps</code> table maps the name of a dependency to a unique identifier
 A project file is simply <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover dark-red">TOML formatted</a> file</p>
 <p>A <strong class="b bg-washed-red">project</strong> is the basic unit of organization: it keeps track of the packages that you depend on.
-When you need a package, declare it as a dependency with <code class="fira-code br1 bg-near-white">add</code>.</p>
+When you need a package, declare it as a dependency with <code class="fira-code">add</code>.</p>
 <p>Whenever you use Pkg, you usually interact with some project.
 The project which is the target of Pkg commands called the <strong class="b bg-washed-red">active project</strong>.</p>
 <hr />

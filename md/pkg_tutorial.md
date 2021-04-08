@@ -151,8 +151,8 @@ Let's take a look inside:
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 ```
 
-The `deps` table maps the name of a dependency to a unique identifier
-A project file is simply [TOML formatted](https://github.com/toml-lang/toml/blob/master/README.md) file
+The `deps` table maps the name of a dependency to a unique identifier.
+A project file is simply [TOML formatted](https://github.com/toml-lang/toml/blob/master/README.md) file.
 
 
 A **project** is the basic unit of organization: it keeps track of the packages that you depend on.

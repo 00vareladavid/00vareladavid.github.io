@@ -23,24 +23,24 @@
   </header>
   <div class="f4 measure-wide open-sans center ph1-ns pt2-ns pa1">
     <section class="min-vh-100">
-<h1 class="f3 lh-title fira-sans-condensed">Getting Started with Pkg</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Getting Started with Pkg</h1>
 <p>Julia ships with a package manager: Pkg.
 It installs and organizes packages.</p>
 <p>The goal of this tutorial is to cover basics concepts needed to use Pkg effectively.</p>
-<h1 class="f3 lh-title fira-sans-condensed">The Pkg REPL Interface</h1>
+<h1 class="f2 lh-title fira-sans-condensed">The Pkg REPL Interface</h1>
 <p>There are two ways to use Pkg: a REPL interface and a standard API.
 To use the REPL interface, enter the right square bracket <code class="fira-code">]</code> in the Julia REPL.
 You should see the Pkg prompt <code class="fira-code">pkg&gt;</code> replace the Julia prompt <code class="fira-code">julia&gt;</code>.</p>
 <p>An example of starting the Julia REPL from the shell and switching to the Pkg REPL:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>[david@blue ~] $ julia
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[david@blue ~] $ julia
 julia&gt; 1 + 1
 2
 
 (v1.3) pkg&gt; 
 </code></pre>
-<h1 class="f3 lh-title fira-sans-condensed">Installing and Loading a Package</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Installing and Loading a Package</h1>
 <p>You can see available packages with the <code class="fira-code">status</code> command.</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
     Status `/tmp/depot/environments/v1.3/Project.toml`
   (empty environment)
 </code></pre>
@@ -48,18 +48,18 @@ julia&gt; 1 + 1
 <code class="fira-code">empty environment</code> means no packages are available.</p>
 <p>To install a package, use the <code class="fira-code">add</code> command.
 Install the <code class="fira-code">JSON</code> package:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; add JSON
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; add JSON
 </code></pre>
 <p>You should see feedback as Pkg installs the package.
 Use <code class="fira-code">status</code> to confirm the operation was successful:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
 Status `/tmp/depot/environments/v1.3/Project.toml`
   [682c06a0] JSON v0.21.0
 </code></pre>
 <p>The feedback now shows <code class="fira-code">JSON</code> is available.
 To use the package, return to the Julia REPL by pressing the <code class="fira-code">BACKSPACE</code> key.
 You can now load <code class="fira-code">JSON</code> and begin using it:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>julia&gt; import JSON
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>julia&gt; import JSON
 
 julia&gt; JSON.parse(&quot;{\&quot;a_number\&quot; : 5.0, \&quot;an_array\&quot; : [\&quot;string\&quot;, 9]}&quot;)
 Dict{String,Any} with 2 entries:
@@ -71,7 +71,7 @@ Dict{String,Any} with 2 entries:
 <li><code class="fira-code">add</code> will make a package available</li>
 <li><code class="fira-code">import</code> will import a package.</li>
 </ol>
-<h1 class="f3 lh-title fira-sans-condensed">A closer look</h1>
+<h1 class="f2 lh-title fira-sans-condensed">A closer look</h1>
 <p>What does it mean to <em>make a package available</em>?</p>
 <p>A package can be imported only when two conditions are met:</p>
 <ol>
@@ -84,16 +84,16 @@ This approach is initally simpler, but quickly results in the dereaded <a href="
 By enforcing this condition, Pkg not only avoids depenency hell, but also supports rich features such as reproducible environments.</p>
 <p>This bears repeating: the set of installed packages is distinct from the set of importable packages.
 To use Pkg effectively, allow it to automatically manage package installations, instead focus on declaring your intent.</p>
-<h1 class="f3 lh-title fira-sans-condensed">Basic operations</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Basic operations</h1>
 <p>Let's try a few more operations.
 Recall that our example environment already declares <code class="fira-code">JSON</code> as a dependency.</p>
 <p>You can print the set of declared dependencies with <code class="fira-code">status</code>:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
 Status `/tmp/demo/Project.toml`
   [682c06a0] JSON v0.21.0
 </code></pre>
 <p>To declare more dependencies simply use <code class="fira-code">add</code> again:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; add DataStructures
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; add DataStructures
   Resolving package versions...
    Updating `~/demo/Project.toml`
   [864edb3b] + DataStructures v0.17.9
@@ -102,13 +102,13 @@ Status `/tmp/demo/Project.toml`
   [bac558e1] + OrderedCollections v1.1.0
 </code></pre>
 <p>Both <code class="fira-code">JSON</code> and <code class="fira-code">DataStructures</code> are now delcared as dependencies:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
 Status `~/demo/Project.toml`
   [864edb3b] DataStructures v0.17.9
   [682c06a0] JSON v0.21.0
 </code></pre>
 <p>To remove a declaration, use <code class="fira-code">rm</code>:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>(demo) pkg&gt; rm JSON
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; rm JSON
    Updating `~/demo/Project.toml`
   [682c06a0] - JSON v0.21.0
    Updating `~/demo/Manifest.toml`
@@ -127,12 +127,12 @@ Status `~/demo/Project.toml`
 Instead, it will update the declarations to reflect that you no longer depend on that package.
 Because of this property, Pkg operations tend to be fast: they usually only manipulate the declarations.</p>
 <p>You now know how to add, remove, and print dependency declarations.</p>
-<h1 class="f3 lh-title fira-sans-condensed">Pkg Projects</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Pkg Projects</h1>
 <p>So far, I've refered to a <em>set of dependency delcarations</em> in the abstract sense.
 Pkg stores this set of declarations in a <strong class="b bg-washed-red">project file</strong>.</p>
 <p>You may have noticed that the first line of <code class="fira-code">status</code> mentions some <code class="fira-code">Project.toml</code> file.
 Let's take a look inside:</p>
-<pre class="pre fira-code br2 pa2 bg-near-white"><code>[david@blue ~/demo] $ cat Project.toml
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[david@blue ~/demo] $ cat Project.toml
 [deps]
 DataStructures = &quot;864edb3b-99cc-5e75-8d2d-829cb0a9cfe8&quot;
 </code></pre>
@@ -144,11 +144,11 @@ When you need a package, declare it as a dependency with <code class="fira-code"
 The project which is the target of Pkg commands called the <strong class="b bg-washed-red">active project</strong>.</p>
 <hr />
 <p>This bears repeating: <strong class="b bg-washed-red">the set of installed packages is distinct from the set of importable packages.</strong></p>
-<h1 class="f3 lh-title fira-sans-condensed">Projects v Package</h1>
-<h1 class="f3 lh-title fira-sans-condensed">Package Structure</h1>
-<h2 class="f4 lh-title fira-sans-condensed">Project file</h2>
-<h2 class="f4 lh-title fira-sans-condensed">Manifest file</h2>
-<h1 class="f3 lh-title fira-sans-condensed">Built-in help</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Projects v Package</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Package Structure</h1>
+<h2 class="f3 lh-title fira-sans-condensed">Project file</h2>
+<h2 class="f3 lh-title fira-sans-condensed">Manifest file</h2>
+<h1 class="f2 lh-title fira-sans-condensed">Built-in help</h1>
   </section>
   <div class="mt2 bt b--black-10 pa4 black-60 flex justify-center">
     <div class="flex-column">

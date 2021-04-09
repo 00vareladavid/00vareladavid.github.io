@@ -31,47 +31,46 @@ It installs and organizes packages.</p>
 <p>There are two ways to use Pkg: a REPL interface and a standard API.
 To use the REPL interface, enter the right square bracket <code class="fira-code">]</code> in the Julia REPL.
 You should see the Pkg prompt <code class="fira-code">pkg&gt;</code> replace the Julia prompt <code class="fira-code">julia&gt;</code>.</p>
-<p>An example of starting the Julia REPL from the shell and switching to the Pkg REPL:</p>
+<p>Start the Julia REPL and switch to the Pkg REPL:</p>
 <pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[david@blue ~] $ julia
 julia&gt; 1 + 1
 2
 
-(v1.3) pkg&gt; 
+(@v1.6) pkg&gt;
 </code></pre>
 <h1 class="f2 lh-title fira-sans-condensed">Installing and Loading a Package</h1>
-<p>You can see available packages with the <code class="fira-code">status</code> command.</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
-    Status `/tmp/depot/environments/v1.3/Project.toml`
-  (empty environment)
+<p>You can see available packages with <code class="fira-code">status</code>:</p>
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; status
+      Status `~/.julia/environments/v1.6/Project.toml` (empty project)
 </code></pre>
 <p>You should see similar feedback on a fresh install.
-<code class="fira-code">empty environment</code> means no packages are available.</p>
-<p>To install a package, use the <code class="fira-code">add</code> command.
+<code class="fira-code">empty project</code> means no packages are available for use.</p>
+<p>To install a package, use <code class="fira-code">add</code>.
 Install the <code class="fira-code">JSON</code> package:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; add JSON
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; add JSON
 </code></pre>
 <p>You should see feedback as Pkg installs the package.
 Use <code class="fira-code">status</code> to confirm the operation was successful:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(v1.3) pkg&gt; status
-Status `/tmp/depot/environments/v1.3/Project.toml`
-  [682c06a0] JSON v0.21.0
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; status
+      Status `~/.julia/environments/v1.6/Project.toml`
+  [682c06a0] JSON v0.21.1
 </code></pre>
-<p>The feedback now shows <code class="fira-code">JSON</code> is available.
+<p>The feedback shows <code class="fira-code">JSON</code> is available.
 To use the package, return to the Julia REPL by pressing the <code class="fira-code">BACKSPACE</code> key.
-You can now load <code class="fira-code">JSON</code> and begin using it:</p>
+You can now load <code class="fira-code">JSON</code> with <code class="fira-code">import</code> and begin using it:</p>
 <pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>julia&gt; import JSON
 
-julia&gt; JSON.parse(&quot;{\&quot;a_number\&quot; : 5.0, \&quot;an_array\&quot; : [\&quot;string\&quot;, 9]}&quot;)
-Dict{String,Any} with 2 entries:
-  &quot;an_array&quot; =&gt; Any[&quot;string&quot;, 9]
+julia&gt; JSON.parse(&quot;&quot;&quot;{&quot;a_number&quot; : 5.0, &quot;an_array&quot; : [&quot;foo&quot;, 9]}&quot;&quot;&quot;)
+Dict{String, Any} with 2 entries:
+  &quot;an_array&quot; =&gt; Any[&quot;foo&quot;, 9]
   &quot;a_number&quot; =&gt; 5.0
 </code></pre>
 <p>This is all you need to know if you quickly need to use a package:</p>
 <ol>
 <li><code class="fira-code">add</code> will make a package available</li>
-<li><code class="fira-code">import</code> will import a package.</li>
+<li><code class="fira-code">import</code> will load the package in your current session</li>
 </ol>
-<h1 class="f2 lh-title fira-sans-condensed">A closer look</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Avoiding Dependency Hell</h1>
 <p>What does it mean to <em>make a package available</em>?</p>
 <p>A package can be imported only when two conditions are met:</p>
 <ol>
@@ -81,67 +80,58 @@ Dict{String,Any} with 2 entries:
 <p>Having to declare dependencies (condition 2) may seem unnecessarily restrictive.
 Indeed, traditional package managers do not enforce this restriction.
 This approach is initally simpler, but quickly results in the dereaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover dark-red">dependency hell</a>.
-By enforcing this condition, Pkg not only avoids depenency hell, but also supports rich features such as reproducible environments.</p>
-<p>This bears repeating: the set of installed packages is distinct from the set of importable packages.
-To use Pkg effectively, allow it to automatically manage package installations, instead focus on declaring your intent.</p>
+By enforcing this condition, Pkg not only avoids depenency hell, but also supports features such as reproducible projects.</p>
+<p>This bears repeating: <strong class="b bg-washed-red">the set of installed packages is distinct from the set of importable packages.</strong>
+To use Pkg effectively, allow it to automatically manage package installations. Instead, focus on declaring intent.</p>
 <h1 class="f2 lh-title fira-sans-condensed">Basic operations</h1>
 <p>Let's try a few more operations.
-Recall that our example environment already declares <code class="fira-code">JSON</code> as a dependency.</p>
+Recall that our example project already declares <code class="fira-code">JSON</code> as a dependency.</p>
 <p>You can print the set of declared dependencies with <code class="fira-code">status</code>:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
-Status `/tmp/demo/Project.toml`
-  [682c06a0] JSON v0.21.0
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; status
+      Status `~/.julia/environments/v1.6/Project.toml`
+  [682c06a0] JSON v0.21.1
 </code></pre>
 <p>To declare more dependencies simply use <code class="fira-code">add</code> again:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; add DataStructures
-  Resolving package versions...
-   Updating `~/demo/Project.toml`
-  [864edb3b] + DataStructures v0.17.9
-   Updating `~/demo/Manifest.toml`
-  [864edb3b] + DataStructures v0.17.9
-  [bac558e1] + OrderedCollections v1.1.0
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; add JSON
 </code></pre>
 <p>Both <code class="fira-code">JSON</code> and <code class="fira-code">DataStructures</code> are now delcared as dependencies:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; status
-Status `~/demo/Project.toml`
-  [864edb3b] DataStructures v0.17.9
-  [682c06a0] JSON v0.21.0
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; status
+      Status `~/.julia/environments/v1.6/Project.toml`
+  [864edb3b] DataStructures v0.18.9
+  [682c06a0] JSON v0.21.1
 </code></pre>
 <p>To remove a declaration, use <code class="fira-code">rm</code>:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(demo) pkg&gt; rm JSON
-   Updating `~/demo/Project.toml`
-  [682c06a0] - JSON v0.21.0
-   Updating `~/demo/Manifest.toml`
-  [682c06a0] - JSON v0.21.0
-  [69de0a69] - Parsers v0.3.11
-  [ade2ca70] - Dates 
-  [a63ad114] - Mmap 
-  [de0858da] - Printf 
-  [4ec0a83e] - Unicode 
-
-(demo) pkg&gt; status
-Status `~/demo/Project.toml`
-  [864edb3b] DataStructures v0.17.9
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; rm JSON
+</code></pre>
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; status
+      Status `~/.julia/environments/v1.6/Project.toml`
+  [864edb3b] DataStructures v0.18.9
 </code></pre>
 <p><code class="fira-code">rm</code> will <em>not</em> uninstall a package from your system.
-Instead, it will update the declarations to reflect that you no longer depend on that package.
+Instead, it will update the declarations to reflect that you no longer require that package.
 Because of this property, Pkg operations tend to be fast: they usually only manipulate the declarations.</p>
 <p>You now know how to add, remove, and print dependency declarations.</p>
-<h1 class="f2 lh-title fira-sans-condensed">Pkg Projects</h1>
+<h1 class="f2 lh-title fira-sans-condensed">Projects</h1>
 <p>So far, I've refered to a <em>set of dependency delcarations</em> in the abstract sense.
-Pkg stores this set of declarations in a <strong class="b bg-washed-red">project file</strong>.</p>
-<p>You may have noticed that the first line of <code class="fira-code">status</code> mentions some <code class="fira-code">Project.toml</code> file.
-Let's take a look inside:</p>
-<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[david@blue ~/demo] $ cat Project.toml
-[deps]
+Pkg organizes sets of dependency delcarations into organizational units called <strong class="b bg-washed-red">projects</strong>.
+When you enter the Pkg REPL, you automatically target the <strong class="b bg-washed-red">default project</strong>.
+All the commands executed so far targeted the default project.</p>
+<p>Initially, it is enough to use the default project.
+Eventually, everyone reaches the point where dependency requirements conflict and
+they enter the dreaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover dark-red">dependency hell</a>.</p>
+<p>For example, say you have some task which requires version 1 of a package, but
+a different task requires version 2.
+Pkg allows you to meet both requirements by isolating each into a project.</p>
+<p>Projects are encoded in your file system as <strong class="b bg-washed-red">project files</strong>.</p>
+<p>Let's look at the current project file:</p>
+<pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[deps]
 DataStructures = &quot;864edb3b-99cc-5e75-8d2d-829cb0a9cfe8&quot;
 </code></pre>
 <p>The <code class="fira-code">deps</code> table maps the name of a dependency to a unique identifier.
-A project file is simply <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover dark-red">TOML formatted</a> file.</p>
-<p>A <strong class="b bg-washed-red">project</strong> is the basic unit of organization: it keeps track of the packages that you depend on.
-When you need a package, declare it as a dependency with <code class="fira-code">add</code>.</p>
-<p>Whenever you use Pkg, you usually interact with some project.
-The project which is the target of Pkg commands called the <strong class="b bg-washed-red">active project</strong>.</p>
+A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover dark-red">TOML formatted</a> file
+which records the dependency requirements of a project.</p>
+<h1 class="f2 lh-title fira-sans-condensed">Packages</h1>
+<p>When you have declared all the dependcies you need</p>
 <hr />
 <p>This bears repeating: <strong class="b bg-washed-red">the set of installed packages is distinct from the set of importable packages.</strong></p>
 <h1 class="f2 lh-title fira-sans-condensed">Projects v Package</h1>
@@ -149,7 +139,8 @@ The project which is the target of Pkg commands called the <strong class="b bg-w
 <h2 class="f3 lh-title fira-sans-condensed">Project file</h2>
 <h2 class="f3 lh-title fira-sans-condensed">Manifest file</h2>
 <h1 class="f2 lh-title fira-sans-condensed">Built-in help</h1>
-  </section>
+<p>The project which is the target of Pkg commands called the <strong class="b bg-washed-red">active project</strong>.</p>
+<div class="f6"><p xmlns:cc="http://creativecommons.org/ns#" >This work by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://varela.tech">David Varela</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"></a></p></div>  </section>
   <div class="mt2 bt b--black-10 pa4 black-60 flex justify-center">
     <div class="flex-column">
       <div>
@@ -181,7 +172,7 @@ The project which is the target of Pkg commands called the <strong class="b bg-w
         </a>
       </div>
       <div class="f5 copyright mt3">
-        &copy; David E Varela
+        &copy; 2021 David E Varela
       </div>
     </div>
   </div>

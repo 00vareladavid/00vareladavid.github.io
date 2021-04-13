@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Fira+Code&family=Open+Sans:wght@300&family=Hind:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Cinzel&family=Fira+Code&family=Hind:wght@300&&family=Jost:wght@300&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
   <style type="text/css">
+    .abel { font-family: 'Abel', sans-serif; }
     .cinzel { font-family: 'Cinzel', serif; }
     .fira-code { font-family: 'Fira Code', monospace; }
-    .hind { font-family: 'Hind', sans-serif; }
+    .jost { font-family: 'Jost', sans-serif; }
     .open-sans { font-family: 'Open Sans', sans-serif; }
   </style>
   <title>David E Varela</title>  
@@ -17,16 +18,15 @@
 <body class="bg-white black-80">
   <header class="bg-near-white w-100 pa2 flex justify-center">
     <nav class="cinzel">
-      <a class="link f4 black-70 fw5 hover-dark-red ttu" href="/">David E Varela</a></li>
+      <a class="link f4 black-70 fw5 dim ttu" href="/">David E Varela</a></li>
     </nav>
   </header>
   <div class="f4 measure-wide open-sans center ph1-ns pt2-ns pa1">
     <section class="min-vh-100">
-<h1 class="f2 lh-title hind normal" id="getting_started_with_pkg"><a class="link black hover-dark-red" href="#getting_started_with_pkg">Getting Started with Pkg</a></h1>
-<p>Julia ships with a package manager: Pkg.
+<h1 class="f1 lh-title jost ttc normal">Pkg Tutorial</h1><p>Julia ships with a package manager: Pkg.
 It installs and organizes packages.</p>
 <p>The goal of this tutorial is to cover basics concepts needed to use Pkg effectively.</p>
-<h1 class="f2 lh-title hind normal" id="the_pkg_repl_interface"><a class="link black hover-dark-red" href="#the_pkg_repl_interface">The Pkg REPL Interface</a></h1>
+<h1 class="f2 lh-title jost ttc normal" id="the_pkg_repl_interface"><a class="link black underline-hover" href="#the_pkg_repl_interface">The Pkg REPL Interface</a></h1>
 <p>There are two ways to use Pkg: a REPL interface and a standard API.
 To use the REPL interface, enter the right square bracket <code class="fira-code">]</code> in the Julia REPL.
 You should see the Pkg prompt <code class="fira-code">pkg&gt;</code> replace the Julia prompt <code class="fira-code">julia&gt;</code>.</p>
@@ -37,7 +37,7 @@ julia&gt; 1 + 1
 
 (@v1.6) pkg&gt;
 </code></pre>
-<h1 class="f2 lh-title hind normal" id="installing_and_loading_a_package"><a class="link black hover-dark-red" href="#installing_and_loading_a_package">Installing and Loading a Package</a></h1>
+<h1 class="f2 lh-title jost ttc normal" id="installing_and_loading_a_package"><a class="link black underline-hover" href="#installing_and_loading_a_package">Installing and Loading a Package</a></h1>
 <p>You can see available packages with <code class="fira-code">status</code>:</p>
 <pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>(@v1.6) pkg&gt; status
       Status `~/.julia/environments/v1.6/Project.toml` (empty project)
@@ -69,7 +69,7 @@ Dict{String, Any} with 2 entries:
 <li><code class="fira-code">add</code> will make a package available</li>
 <li><code class="fira-code">import</code> will load the package in your current session</li>
 </ol>
-<h1 class="f2 lh-title hind normal" id="avoiding_dependency_hell"><a class="link black hover-dark-red" href="#avoiding_dependency_hell">Avoiding Dependency Hell</a></h1>
+<h1 class="f2 lh-title jost ttc normal" id="avoiding_dependency_hell"><a class="link black underline-hover" href="#avoiding_dependency_hell">Avoiding Dependency Hell</a></h1>
 <p>What does it mean to <em>make a package available</em>?</p>
 <p>A package can be imported only when two conditions are met:</p>
 <ol>
@@ -78,11 +78,11 @@ Dict{String, Any} with 2 entries:
 </ol>
 <p>Having to declare dependencies (condition 2) may seem unnecessarily restrictive.
 Indeed, traditional package managers do not enforce this restriction.
-This approach is initally simpler, but quickly results in the dereaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover dark-red">dependency hell</a>.
+This approach is initally simpler, but quickly results in the dereaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline blue hover-black">dependency hell</a>.
 By enforcing this condition, Pkg not only avoids depenency hell, but also supports features such as reproducible projects.</p>
-<p>This bears repeating: <strong class="b bg-washed-red">the set of installed packages is distinct from the set of importable packages.</strong>
+<p>This bears repeating: <strong class="b dark-gray bg-washed-yellow">the set of installed packages is distinct from the set of importable packages.</strong>
 To use Pkg effectively, allow it to automatically manage package installations. Instead, focus on declaring intent.</p>
-<h1 class="f2 lh-title hind normal" id="basic_operations"><a class="link black hover-dark-red" href="#basic_operations">Basic operations</a></h1>
+<h1 class="f2 lh-title jost ttc normal" id="basic_operations"><a class="link black underline-hover" href="#basic_operations">Basic operations</a></h1>
 <p>Let's try a few more operations.
 Recall that our example project already declares <code class="fira-code">JSON</code> as a dependency.</p>
 <p>You can print the set of declared dependencies with <code class="fira-code">status</code>:</p>
@@ -110,36 +110,37 @@ Recall that our example project already declares <code class="fira-code">JSON</c
 Instead, it will update the declarations to reflect that you no longer require that package.
 Because of this property, Pkg operations tend to be fast: they usually only manipulate the declarations.</p>
 <p>You now know how to add, remove, and print dependency declarations.</p>
-<h1 class="f2 lh-title hind normal" id="projects"><a class="link black hover-dark-red" href="#projects">Projects</a></h1>
+<h1 class="f2 lh-title jost ttc normal" id="projects"><a class="link black underline-hover" href="#projects">Projects</a></h1>
 <p>So far, I've refered to a <em>set of dependency delcarations</em> in the abstract sense.
-Pkg organizes sets of dependency delcarations into organizational units called <strong class="b bg-washed-red">projects</strong>.
-When you enter the Pkg REPL, you automatically target the <strong class="b bg-washed-red">default project</strong>.
+Pkg organizes sets of dependency delcarations into organizational units called <strong class="b dark-gray bg-washed-yellow">projects</strong>.
+When you enter the Pkg REPL, you automatically target the <strong class="b dark-gray bg-washed-yellow">default project</strong>.
 All the commands executed so far targeted the default project.</p>
 <p>Initially, it is enough to use the default project.
 Eventually, everyone reaches the point where dependency requirements conflict and
-they enter the dreaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover dark-red">dependency hell</a>.</p>
+they enter the dreaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline blue hover-black">dependency hell</a>.</p>
 <p>For example, say you have some task which requires version 1 of a package, but
 a different task requires version 2.
 Pkg allows you to meet both requirements by isolating each into a project.</p>
-<p>Projects are encoded in your file system as <strong class="b bg-washed-red">project files</strong>.</p>
+<p>Projects are encoded in your file system as <strong class="b dark-gray bg-washed-yellow">project files</strong>.</p>
 <p>Let's look at the current project file:</p>
 <pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[deps]
 DataStructures = &quot;864edb3b-99cc-5e75-8d2d-829cb0a9cfe8&quot;
 </code></pre>
 <p>The <code class="fira-code">deps</code> table maps the name of a dependency to a unique identifier.
-A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover dark-red">TOML formatted</a> file
+A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline blue hover-black">TOML formatted</a> file
 which records the dependency requirements of a project.</p>
-<h1 class="f2 lh-title hind normal" id="packages"><a class="link black hover-dark-red" href="#packages">Packages</a></h1>
+<h1 class="f2 lh-title jost ttc normal" id="packages"><a class="link black underline-hover" href="#packages">Packages</a></h1>
 <p>When you have declared all the dependcies you need</p>
 <hr />
-<p>This bears repeating: <strong class="b bg-washed-red">the set of installed packages is distinct from the set of importable packages.</strong></p>
-<h1 class="f2 lh-title hind normal" id="projects_v_package"><a class="link black hover-dark-red" href="#projects_v_package">Projects v Package</a></h1>
-<h1 class="f2 lh-title hind normal" id="package_structure"><a class="link black hover-dark-red" href="#package_structure">Package Structure</a></h1>
-<h2 class="f3 lh-title hind normal" id="project_file"><a class="link black hover-dark-red" href="#project_file">Project file</a></h2>
-<h2 class="f3 lh-title hind normal" id="manifest_file"><a class="link black hover-dark-red" href="#manifest_file">Manifest file</a></h2>
-<h1 class="f2 lh-title hind normal" id="built-in_help"><a class="link black hover-dark-red" href="#built-in_help">Built-in help</a></h1>
-<p>The project which is the target of Pkg commands called the <strong class="b bg-washed-red">active project</strong>.</p>
-<div class="f6"><p xmlns:cc="http://creativecommons.org/ns#" >This work by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://varela.tech">David Varela</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"></a></p></div>  </section>
+<h1 class="f2 lh-title jost ttc normal" id="todo"><a class="link black underline-hover" href="#todo">TODO</a></h1>
+<ul>
+<li>Projects v Package</li>
+<li>Package Structure</li>
+<li>Project file</li>
+<li>Manifest file</li>
+<li>Built-in help</li>
+</ul>
+<p class="f6 black" xmlns:cc="http://creativecommons.org/ns#" >This work by <a class="blue hover-black" rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://varela.tech">David Varela</a> is licensed under <a class="blue hover-black" href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1"></a></p>  </section>
   <div class="mt2 bt b--black-10 pa4 black-60 flex justify-center">
     <div class="flex-column">
       <div>

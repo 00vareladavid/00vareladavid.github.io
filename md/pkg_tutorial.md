@@ -1,4 +1,3 @@
-# Getting Started with Pkg
 
 Julia ships with a package manager: Pkg.
 It installs and organizes packages.
@@ -157,17 +156,11 @@ A project file is a [TOML formatted](https://github.com/toml-lang/toml/blob/mast
 When you have declared all the dependcies you need
 
 ---
-This bears repeating: **the set of installed packages is distinct from the set of importable packages.**
 
-# Projects v Package
+# TODO
 
-# Package Structure
-
-## Project file
-
-## Manifest file
-
-
-# Built-in help
-
-The project which is the target of Pkg commands called the **active project**.
+* Projects v Package
+* Package Structure
+* Project file
+* Manifest file
+* Built-in help

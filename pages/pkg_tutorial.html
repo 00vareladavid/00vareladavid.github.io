@@ -12,6 +12,7 @@
     .fira-code { font-family: 'Fira Code', monospace; }
     .jost { font-family: 'Jost', sans-serif; }
     .open-sans { font-family: 'Open Sans', sans-serif; }
+    .bg-half { background: repeating-linear-gradient(transparent, transparent 29.9%, #FBF1A9 30.1%, #FBF1A9 100%); }
   </style>
   <title>David E Varela</title>  
 </head>
@@ -78,9 +79,9 @@ Dict{String, Any} with 2 entries:
 </ol>
 <p>Having to declare dependencies (condition 2) may seem unnecessarily restrictive.
 Indeed, traditional package managers do not enforce this restriction.
-This approach is initally simpler, but quickly results in the dereaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline blue hover-black">dependency hell</a>.
+This approach is initally simpler, but quickly results in the dereaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover blue">dependency hell</a>.
 By enforcing this condition, Pkg not only avoids depenency hell, but also supports features such as reproducible projects.</p>
-<p>This bears repeating: <strong class="b dark-gray bg-washed-yellow">the set of installed packages is distinct from the set of importable packages.</strong>
+<p>This bears repeating: <strong class="normal dark-gray bg-half">the set of installed packages is distinct from the set of importable packages.</strong>
 To use Pkg effectively, allow it to automatically manage package installations. Instead, focus on declaring intent.</p>
 <h1 class="f2 lh-title jost ttc normal" id="basic_operations"><a class="link black underline-hover" href="#basic_operations">Basic operations</a></h1>
 <p>Let's try a few more operations.
@@ -112,22 +113,22 @@ Because of this property, Pkg operations tend to be fast: they usually only mani
 <p>You now know how to add, remove, and print dependency declarations.</p>
 <h1 class="f2 lh-title jost ttc normal" id="projects"><a class="link black underline-hover" href="#projects">Projects</a></h1>
 <p>So far, I've refered to a <em>set of dependency delcarations</em> in the abstract sense.
-Pkg organizes sets of dependency delcarations into organizational units called <strong class="b dark-gray bg-washed-yellow">projects</strong>.
-When you enter the Pkg REPL, you automatically target the <strong class="b dark-gray bg-washed-yellow">default project</strong>.
+Pkg organizes sets of dependency delcarations into organizational units called <strong class="normal dark-gray bg-half">projects</strong>.
+When you enter the Pkg REPL, you automatically target the <strong class="normal dark-gray bg-half">default project</strong>.
 All the commands executed so far targeted the default project.</p>
 <p>Initially, it is enough to use the default project.
 Eventually, everyone reaches the point where dependency requirements conflict and
-they enter the dreaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline blue hover-black">dependency hell</a>.</p>
+they enter the dreaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover blue">dependency hell</a>.</p>
 <p>For example, say you have some task which requires version 1 of a package, but
 a different task requires version 2.
 Pkg allows you to meet both requirements by isolating each into a project.</p>
-<p>Projects are encoded in your file system as <strong class="b dark-gray bg-washed-yellow">project files</strong>.</p>
+<p>Projects are encoded in your file system as <strong class="normal dark-gray bg-half">project files</strong>.</p>
 <p>Let's look at the current project file:</p>
 <pre class="pre fira-code overflow-auto br2 pa2 bg-near-white"><code>[deps]
 DataStructures = &quot;864edb3b-99cc-5e75-8d2d-829cb0a9cfe8&quot;
 </code></pre>
 <p>The <code class="fira-code">deps</code> table maps the name of a dependency to a unique identifier.
-A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline blue hover-black">TOML formatted</a> file
+A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover blue">TOML formatted</a> file
 which records the dependency requirements of a project.</p>
 <h1 class="f2 lh-title jost ttc normal" id="packages"><a class="link black underline-hover" href="#packages">Packages</a></h1>
 <p>When you have declared all the dependcies you need</p>

@@ -20,6 +20,10 @@ julia> 1 + 1
 (@v1.6) pkg>
 ```
 
+## This is some subheading
+
+fo sho
+
 # Installing and Loading a Package
 
 You can see available packages with `status`:
@@ -157,7 +161,7 @@ When you have declared all the dependcies you need
 
 ---
 
-# TODO
+# todo
 
 * Projects v Package
 * Package Structure

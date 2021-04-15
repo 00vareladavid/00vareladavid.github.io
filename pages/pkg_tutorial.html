@@ -1,77 +1,90 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Fira+Code&family=Jost:wght@300&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
-  <style type="text/css">
-    .cinzel { font-family: 'Cinzel', serif; }
-    .fira-code { font-family: 'Fira Code', monospace; }
-    .jost { font-family: 'Jost', sans-serif; }
-    .open-sans { font-family: 'Open Sans', sans-serif; }
-    .bg-half { background: repeating-linear-gradient(transparent, transparent 29.9%, #FBF1A9 30.1%, #FBF1A9 100%); }
-  </style>
-  <title>David E Varela</title>  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Fira+Code&family=Jost:wght@300&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <style type="text/css">
+        .cinzel { font-family: 'Cinzel', serif; }
+        .fira-code { font-family: 'Fira Code', monospace; }
+        .jost { font-family: 'Jost', sans-serif; }
+        .open-sans { font-family: 'Open Sans', sans-serif; }
+        .bg-half { background: repeating-linear-gradient(transparent, transparent 29.9%, #FBF1A9 30.1%, #FBF1A9 100%); }
+        .element::-webkit-scrollbar { width: 0 !important }
+        .element { overflow: -moz-scrollbars-none; }
+        .element { -ms-overflow-style: none; }
+    </style>
+    <title>David E Varela</title>  
 </head>
 <body class="bg-white black-80">
-  <div class="center">
-<div class="fixed-ns fl min-vh-100-ns w-100 w-20-ns content-center bg-white">
-     <div class="cinzel pa1 pa3-ns mv3-ns flex justify-center">
-       <a class="link underline-hover f4 navy fw5 ttu" href="/">David E Varela</a></li>
-     </div>
-     <div class="pa1 ph3-ns">
-       <ul class="list pl0">
+    <div class="center">
+<div class="fixed-ns fl vh-100-ns min-vh-100-ns w-100 w-20-ns content-center bg-white overflow-y-auto-ns">
+    <div class="cinzel pa1 pa3-ns mv3-ns flex justify-center">
+        <a class="link underline-hover f4 navy fw5 ttu" href="/">David E Varela</a></li>
+    </div>
+    <div class="pa1 ph3-ns">
+        <ul class="list pl0">
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#the_pkg_repl_interface">
-         The Pkg REPL Interface
-       </a>
-     </li>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#the_pkg_repl_interface">
+        The Pkg REPL Interface
+    </a>
+</li>
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#installing_and_loading_a_package">
-         Installing and Loading a Package
-       </a>
-     </li>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#installing_and_loading_a_package">
+        Installing and Loading a Package
+    </a>
+</li>
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#avoiding_dependency_hell">
-         Avoiding Dependency Hell
-       </a>
-     </li>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#basic_commands">
+        Basic commands
+    </a>
+</li>
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#basic_operations">
-         Basic operations
-       </a>
-     </li>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#projects">
+        Projects
+    </a>
+</li>
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#projects">
-         Projects
-       </a>
-     </li>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#project_files">
+        Project Files
+    </a>
+</li>
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#packages">
-         Packages
-       </a>
-     </li>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#switching_projects">
+        Switching Projects
+    </a>
+</li>
 <li class="lh-solid mv2 pt1">
-       <a class="link underline-hover f4 jost dark-gray ttc " href="#todo">
-         todo
-       </a>
-     </li>
-    </ul>
-     </div>
-   </div>
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#packages">
+        Packages
+    </a>
+</li>
+<li class="lh-solid mv2 pt1">
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#creating_a_new_package">
+        Creating a new package
+    </a>
+</li>
+<li class="lh-solid mv2 pt1">
+    <a class="link underline-hover f4 jost dark-gray ttc " href="#pkg_help_and_further_reading">
+        Pkg Help and Further Reading
+    </a>
+</li>
+        </ul>
+    </div>
+</div>
 <div class="fr w-100 w-80-ns">
-     <div class="f4 measure-wide open-sans center ph1-ns pt3-ns pa1">
+    <div class="f4 measure-wide open-sans center ph1-ns pt3-ns pa1">
 <h1 class="f1 db lh-title jost ttc normal">
-  Pkg Tutorial
-  <span class="f5 db jost gray ttc normal mt2">Published 2021/04/07</span>
+    An Introduction to Pkg
+    <span class="f5 db jost gray ttc normal mt2">Published 2021/04/07</span>
 </h1>
 <p>Julia ships with a package manager: Pkg.
 It installs and organizes packages.</p>
 <p>The goal of this tutorial is to cover basics concepts needed to use Pkg effectively.</p>
 <h1 class="f2 lh-title jost ttc normal" id="the_pkg_repl_interface"><a class="link black underline-hover" href="#the_pkg_repl_interface">The Pkg REPL Interface</a></h1>
-<p>There are two ways to use Pkg: a REPL interface and a standard API.
+<p>There are two ways to use Pkg: a <strong class="normal dark-gray bg-half">REPL interface</strong> and a standard <strong class="normal dark-gray bg-half">API</strong>.
 To use the REPL interface, enter the right square bracket <code class="fira-code">]</code> in the Julia REPL.
 You should see the Pkg prompt <code class="fira-code">pkg&gt;</code> replace the Julia prompt <code class="fira-code">julia&gt;</code>.</p>
 <p>Start the Julia REPL and switch to the Pkg REPL:</p>
@@ -82,13 +95,13 @@ julia&gt; 1 + 1
 (@v1.6) pkg&gt;
 </code></pre>
 <h1 class="f2 lh-title jost ttc normal" id="installing_and_loading_a_package"><a class="link black underline-hover" href="#installing_and_loading_a_package">Installing and Loading a Package</a></h1>
-<p>You can see available packages with <code class="fira-code">status</code>:</p>
+<p>You can see available packages with <strong class="normal dark-gray bg-half"><code class="fira-code">status</code></strong>:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; status
       Status `~/.julia/environments/v1.6/Project.toml` (empty project)
 </code></pre>
-<p>You should see similar feedback on a fresh install.
+<p>You should see similar feedback on a fresh system.
 <code class="fira-code">empty project</code> means no packages are available for use.</p>
-<p>To install a package, use <code class="fira-code">add</code>.
+<p>To install a package, use <strong class="normal dark-gray bg-half"><code class="fira-code">add</code></strong>.
 Install the <code class="fira-code">JSON</code> package:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; add JSON
 </code></pre>
@@ -100,7 +113,7 @@ Use <code class="fira-code">status</code> to confirm the operation was successfu
 </code></pre>
 <p>The feedback shows <code class="fira-code">JSON</code> is available.
 To use the package, return to the Julia REPL by pressing the <code class="fira-code">BACKSPACE</code> key.
-You can now load <code class="fira-code">JSON</code> with <code class="fira-code">import</code> and begin using it:</p>
+You can now load <code class="fira-code">JSON</code> with <strong class="normal dark-gray bg-half"><code class="fira-code">import</code></strong> and begin using it:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">julia&gt; import JSON
 
 julia&gt; JSON.parse(&quot;&quot;&quot;{&quot;a_number&quot; : 5.0, &quot;an_array&quot; : [&quot;foo&quot;, 9]}&quot;&quot;&quot;)
@@ -108,42 +121,29 @@ Dict{String, Any} with 2 entries:
   &quot;an_array&quot; =&gt; Any[&quot;foo&quot;, 9]
   &quot;a_number&quot; =&gt; 5.0
 </code></pre>
-<p>This is all you need to know if you quickly need to use a package:</p>
+<p>If you need to use a package:</p>
 <ol>
 <li><code class="fira-code">add</code> will make a package available</li>
 <li><code class="fira-code">import</code> will load the package in your current session</li>
 </ol>
-<h1 class="f2 lh-title jost ttc normal" id="avoiding_dependency_hell"><a class="link black underline-hover" href="#avoiding_dependency_hell">Avoiding Dependency Hell</a></h1>
-<p>What does it mean to <em>make a package available</em>?</p>
-<p>A package can be imported only when two conditions are met:</p>
-<ol>
-<li>The package is installed on the system</li>
-<li>The package is declared as a dependency</li>
-</ol>
-<p>Having to declare dependencies (condition 2) may seem unnecessarily restrictive.
-Indeed, traditional package managers do not enforce this restriction.
-This approach is initally simpler, but quickly results in the dereaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover blue">dependency hell</a>.
-By enforcing this condition, Pkg not only avoids depenency hell, but also supports features such as reproducible projects.</p>
-<p>This bears repeating: <strong class="normal dark-gray bg-half">the set of installed packages is distinct from the set of importable packages.</strong>
-To use Pkg effectively, allow it to automatically manage package installations. Instead, focus on declaring intent.</p>
-<h1 class="f2 lh-title jost ttc normal" id="basic_operations"><a class="link black underline-hover" href="#basic_operations">Basic operations</a></h1>
-<p>Let's try a few more operations.
-Recall that our example project already declares <code class="fira-code">JSON</code> as a dependency.</p>
+<h1 class="f2 lh-title jost ttc normal" id="basic_commands"><a class="link black underline-hover" href="#basic_commands">Basic commands</a></h1>
+<p>Let's try a few more commands.
+Recall our example project already declares <code class="fira-code">JSON</code> as a dependency.</p>
 <p>You can print the set of declared dependencies with <code class="fira-code">status</code>:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; status
       Status `~/.julia/environments/v1.6/Project.toml`
   [682c06a0] JSON v0.21.1
 </code></pre>
-<p>To declare more dependencies simply use <code class="fira-code">add</code> again:</p>
-<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; add JSON
+<p>To declare more dependencies use <code class="fira-code">add</code> again:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; add DataStructures
 </code></pre>
-<p>Both <code class="fira-code">JSON</code> and <code class="fira-code">DataStructures</code> are now delcared as dependencies:</p>
+<p>Both <code class="fira-code">JSON</code> and <code class="fira-code">DataStructures</code> are now declared as dependencies:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; status
       Status `~/.julia/environments/v1.6/Project.toml`
   [864edb3b] DataStructures v0.18.9
   [682c06a0] JSON v0.21.1
 </code></pre>
-<p>To remove a declaration, use <code class="fira-code">rm</code>:</p>
+<p>To remove a declaration, use <strong class="normal dark-gray bg-half"><code class="fira-code">rm</code></strong>:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; rm JSON
 </code></pre>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; status
@@ -152,38 +152,133 @@ Recall that our example project already declares <code class="fira-code">JSON</c
 </code></pre>
 <p><code class="fira-code">rm</code> will <em>not</em> uninstall a package from your system.
 Instead, it will update the declarations to reflect that you no longer require that package.
-Because of this property, Pkg operations tend to be fast: they usually only manipulate the declarations.</p>
+Because of this property, Pkg commands tend to be fast: they usually only manipulate the declarations.</p>
 <p>You now know how to add, remove, and print dependency declarations.</p>
 <h1 class="f2 lh-title jost ttc normal" id="projects"><a class="link black underline-hover" href="#projects">Projects</a></h1>
-<p>So far, I've refered to a <em>set of dependency delcarations</em> in the abstract sense.
-Pkg organizes sets of dependency delcarations into organizational units called <strong class="normal dark-gray bg-half">projects</strong>.
-When you enter the Pkg REPL, you automatically target the <strong class="normal dark-gray bg-half">default project</strong>.
-All the commands executed so far targeted the default project.</p>
-<p>Initially, it is enough to use the default project.
-Eventually, everyone reaches the point where dependency requirements conflict and
-they enter the dreaded <a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover blue">dependency hell</a>.</p>
-<p>For example, say you have some task which requires version 1 of a package, but
-a different task requires version 2.
-Pkg allows you to meet both requirements by isolating each into a project.</p>
-<p>Projects are encoded in your file system as <strong class="normal dark-gray bg-half">project files</strong>.</p>
+<p>So far, I've referred to a <em>set of dependency declarations</em> in the abstract sense.
+Pkg organizes sets of dependency declarations into organizational units called <strong class="normal dark-gray bg-half">projects</strong>.</p>
+<p>Traditional package managers organize everything into the conceptual equivalent
+of a single project.
+While this approach is initially simpler, it invariably leads to the dreaded
+<a href="https://en.wikipedia.org/wiki/Dependency_hell" class="link underline-hover blue">dependency hell</a>.
+Pkg <code class="fira-code">projects</code> provide a way to handle such issues while also enabling
+powerful features such as reproducible projects.</p>
+<h1 class="f2 lh-title jost ttc normal" id="project_files"><a class="link black underline-hover" href="#project_files">Project Files</a></h1>
+<p>Projects are encoded in your file system as a directory containing a <strong class="normal dark-gray bg-half">project file</strong>.
+A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover blue">TOML formatted</a> file
+that will either have the name <code class="fira-code">Project.toml</code> or <code class="fira-code">JuliaProject.toml</code>.</p>
 <p>Let's look at the current project file:</p>
 <pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">[deps]
 DataStructures = &quot;864edb3b-99cc-5e75-8d2d-829cb0a9cfe8&quot;
 </code></pre>
-<p>The <code class="fira-code">deps</code> table maps the name of a dependency to a unique identifier.
-A project file is a <a href="https://github.com/toml-lang/toml/blob/master/README.md" class="link underline-hover blue">TOML formatted</a> file
-which records the dependency requirements of a project.</p>
+<p>The <code class="fira-code">deps</code> table lists all the direct dependencies for a project.
+It is a map from the name of a dependency to a UUID.
+The name corresponds to the name you will use to load and access the dependency
+from within a Julia session.
+The UUID is used within Pkg and the code loading mechanism to reference dependencies.</p>
+<h1 class="f2 lh-title jost ttc normal" id="switching_projects"><a class="link black underline-hover" href="#switching_projects">Switching Projects</a></h1>
+<p>Pkg commands always target the <strong class="normal dark-gray bg-half">active project</strong>.
+You can set the active project by directing <strong class="normal dark-gray bg-half"><code class="fira-code">activate</code></strong> to a filesystem directory:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(jl_o9x6aA) pkg&gt; activate ./Foo
+  Activating new environment at `~/Foo/Project.toml`
+
+(Foo) pkg&gt; status
+      Status `~/Foo/Project.toml` (empty project)
+</code></pre>
+<p>The feedback tells you that this new project will be stored at the directory <code class="fira-code">~/Foo</code>.
+The Pkg REPL prompt will update to reflect the active project.
+We can also tell that we are targeting a new project because status tells us
+that the project is empty.</p>
+<p>Pkg also supports temporary projects.
+They are useful when you want to create a project on the fly.
+You can create a temporary project with the <code class="fira-code">--temp</code> flag:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(Foo) pkg&gt; activate --temp
+  Activating new environment at `/tmp/jl_o9x6aA/Project.toml`
+
+(jl_o9x6aA) pkg&gt; 
+</code></pre>
+<p>Remember, thanks to intelligent caching, projects are extremely cheap to create.
+Use new projects as often as necessary.</p>
 <h1 class="f2 lh-title jost ttc normal" id="packages"><a class="link black underline-hover" href="#packages">Packages</a></h1>
-<p>When you have declared all the dependcies you need</p>
-<hr />
-<h1 class="f2 lh-title jost ttc normal" id="todo"><a class="link black underline-hover" href="#todo">todo</a></h1>
+<p>At some point, you will want to make your code available to others.
+You can do this by creating a Pkg <strong class="normal dark-gray bg-half">package</strong>.
+Recall that a project is the set of requirements needed for a piece of code to run.
+Then, a package is really just a specific kind of project.
+In addition to a normal project, a package also requires:</p>
+<ol>
+<li>a root module</li>
+<li>a name</li>
+<li>a uuid</li>
+</ol>
+<p>Pkg requires the name of the package and the name of the root module to be the same.
+Additionally, it requires the root module to be stored at <code class="fira-code">src/&lt;PACKAGE_NAME&gt;.jl</code>
+relative to the package's root directory.</p>
+<h1 class="f2 lh-title jost ttc normal" id="creating_a_new_package"><a class="link black underline-hover" href="#creating_a_new_package">Creating a new package</a></h1>
+<p>Let's walk through creating a new package.
+There exist a variety of packages to help with this, but I like using <code class="fira-code">PkgSkeleton</code>.</p>
+<p>First, create a temporary project so that we can install <code class="fira-code">PkgSkeleton</code>:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; activate --temp
+  Activating new environment at `/tmp/jl_XgtyFv/Project.toml`
+</code></pre>
+<p>Next, install and load <code class="fira-code">PkgSkeleton</code>:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(jl_XgtyFv) pkg&gt; add PkgSkeleton
+&lt;feedback omitted&gt;
+
+julia&gt; import PkgSkeleton
+</code></pre>
+<p>Use <code class="fira-code">generate</code> to create the package:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">julia&gt; PkgSkeleton.generate(&quot;ExamplePackage&quot;)
+&lt;feedback omitted&gt;
+</code></pre>
+<p><code class="fira-code">PkgSkeleton</code> will create a directory where the package is stored.
+You will see that all the basic requirements for a package are satisfied:</p>
 <ul>
-<li>Projects v Package</li>
-<li>Package Structure</li>
-<li>Project file</li>
-<li>Manifest file</li>
-<li>Built-in help</li>
+<li>a project file in the root of the directory</li>
+<li>the project file specifies a name, a UUID, and a <code class="fira-code">deps</code> table</li>
+<li>a root module stored at <code class="fira-code">src/ExamplePackage.jl</code></li>
 </ul>
+<p>Notice the root module is initially empty.
+Let's modify it so that our new package has some functionality:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">module ExamplePackage
+
+hello() = println(&quot;Hello World!&quot;)
+
+end # module
+</code></pre>
+<p>Finally, load and use the package:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(jl_XgtyFv) pkg&gt; activate ./ExamplePackage/
+  Activating project at `~/ExamplePackage`
+
+julia&gt; import ExamplePackage
+[ Info: Precompiling ExamplePackage [708cade6-8b63-4e43-a962-7a27faa63a21]
+
+julia&gt; ExamplePackage.hello()
+Hello World!
+</code></pre>
+<h1 class="f2 lh-title jost ttc normal" id="pkg_help_and_further_reading"><a class="link black underline-hover" href="#pkg_help_and_further_reading">Pkg Help and Further Reading</a></h1>
+<p>The Pkg REPL also ships with a built-in help system.</p>
+<p>Try asking it about the <code class="fira-code">add</code> command:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; ? add
+</code></pre>
+<p>Or ask for a synopsis of all commands:</p>
+<pre class="pre overflow-auto br2 pa2 bg-near-white"><code class="f5 fira-code">(@v1.6) pkg&gt; ?
+</code></pre>
+<p>You can also check out the <a href="https://pkgdocs.julialang.org/v1.6/" class="link underline-hover blue">Pkg reference documentation</a>
+for more details.
+If you get stuck you can usually find someone to help you on
+<a href="https://discourse.julialang.org/" class="link underline-hover blue">Julia's Discourse</a>
+or on StackOverflow using the <code class="fira-code">julia</code> tag.
+Happy packaging!</p>
+<p class="f6 black" xmlns:cc="http://creativecommons.org/ns#">
+    This work by
+        <a class="link blue underline-hover" rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://varela.tech">
+            David Varela
+        </a>
+    is licensed under
+        <a class="link blue underline-hover" href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">
+            CC BY-NC 4.0
+        </a>
+</p>
 <div class="mt2 bt b--black-10 pa4 black-60 flex justify-center">
   <div class="flex-column">
     <div>
@@ -219,8 +314,8 @@ which records the dependency requirements of a project.</p>
     </div>
   </div>
 </div>
-  </div>
-   </div>
+    </div>
+</div>
     </div> <!-- end CONTENT div -->
-  </body>
+</body>
 </html>

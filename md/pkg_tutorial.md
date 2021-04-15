@@ -1,4 +1,3 @@
-
 Julia ships with a package manager: Pkg.
 It installs and organizes packages.
 
@@ -6,7 +5,7 @@ The goal of this tutorial is to cover basics concepts needed to use Pkg effectiv
 
 # The Pkg REPL Interface
 
-There are two ways to use Pkg: a REPL interface and a standard API.
+There are two ways to use Pkg: a **REPL interface** and a standard **API**.
 To use the REPL interface, enter the right square bracket `]` in the Julia REPL.
 You should see the Pkg prompt `pkg>` replace the Julia prompt `julia>`.
 
@@ -22,17 +21,17 @@ julia> 1 + 1
 
 # Installing and Loading a Package
 
-You can see available packages with `status`:
+You can see available packages with **`status`**:
 
 ```
 (@v1.6) pkg> status
       Status `~/.julia/environments/v1.6/Project.toml` (empty project)
 ```
 
-You should see similar feedback on a fresh install.
+You should see similar feedback on a fresh system.
 `empty project` means no packages are available for use.
   
-To install a package, use `add`.
+To install a package, use **`add`**.
 Install the `JSON` package:
 
 ```
@@ -50,7 +49,7 @@ Use `status` to confirm the operation was successful:
 
 The feedback shows `JSON` is available.
 To use the package, return to the Julia REPL by pressing the `BACKSPACE` key.
-You can now load `JSON` with `import` and begin using it:
+You can now load `JSON` with **`import`** and begin using it:
   
 ```
 julia> import JSON
@@ -61,30 +60,14 @@ Dict{String, Any} with 2 entries:
   "a_number" => 5.0
 ```
 
-This is all you need to know if you quickly need to use a package:
+If you need to use a package:
 1. `add` will make a package available
 2. `import` will load the package in your current session
   
-# Avoiding Dependency Hell
+# Basic commands
 
-What does it mean to _make a package available_?
-
-A package can be imported only when two conditions are met:
-1. The package is installed on the system
-2. The package is declared as a dependency
-
-Having to declare dependencies (condition 2) may seem unnecessarily restrictive.
-Indeed, traditional package managers do not enforce this restriction.
-This approach is initally simpler, but quickly results in the dereaded [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
-By enforcing this condition, Pkg not only avoids depenency hell, but also supports features such as reproducible projects.
-
-This bears repeating: **the set of installed packages is distinct from the set of importable packages.**
-To use Pkg effectively, allow it to automatically manage package installations. Instead, focus on declaring intent.
-
-# Basic operations
-
-Let's try a few more operations.
-Recall that our example project already declares `JSON` as a dependency.
+Let's try a few more commands.
+Recall our example project already declares `JSON` as a dependency.
 
 You can print the set of declared dependencies with `status`:
 ```
@@ -93,12 +76,12 @@ You can print the set of declared dependencies with `status`:
   [682c06a0] JSON v0.21.1
 ```
 
-To declare more dependencies simply use `add` again:
+To declare more dependencies use `add` again:
 ```
-(@v1.6) pkg> add JSON
+(@v1.6) pkg> add DataStructures
 ```
 
-Both `JSON` and `DataStructures` are now delcared as dependencies:
+Both `JSON` and `DataStructures` are now declared as dependencies:
 ```
 (@v1.6) pkg> status
       Status `~/.julia/environments/v1.6/Project.toml`
@@ -106,7 +89,7 @@ Both `JSON` and `DataStructures` are now delcared as dependencies:
   [682c06a0] JSON v0.21.1
 ```
 
-To remove a declaration, use `rm`:
+To remove a declaration, use **`rm`**:
 ```
 (@v1.6) pkg> rm JSON
 ```
@@ -119,26 +102,27 @@ To remove a declaration, use `rm`:
 
 `rm` will *not* uninstall a package from your system.
 Instead, it will update the declarations to reflect that you no longer require that package.
-Because of this property, Pkg operations tend to be fast: they usually only manipulate the declarations.
+Because of this property, Pkg commands tend to be fast: they usually only manipulate the declarations.
 
 You now know how to add, remove, and print dependency declarations.
 
 # Projects
 
-So far, I've refered to a *set of dependency delcarations* in the abstract sense.
-Pkg organizes sets of dependency delcarations into organizational units called **projects**.
-When you enter the Pkg REPL, you automatically target the **default project**.
-All the commands executed so far targeted the default project.
+So far, I've referred to a *set of dependency declarations* in the abstract sense.
+Pkg organizes sets of dependency declarations into organizational units called **projects**.
 
-Initially, it is enough to use the default project.
-Eventually, everyone reaches the point where dependency requirements conflict and
-  they enter the dreaded [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
+Traditional package managers organize everything into the conceptual equivalent
+    of a single project.
+While this approach is initially simpler, it invariably leads to the dreaded
+    [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
+Pkg `projects` provide a way to handle such issues while also enabling
+    powerful features such as reproducible projects.
 
-For example, say you have some task which requires version 1 of a package, but
-  a different task requires version 2.
-Pkg allows you to meet both requirements by isolating each into a project.
+# Project Files
 
-Projects are encoded in your file system as **project files**.
+Projects are encoded in your file system as a directory containing a **project file**.
+A project file is a [TOML formatted](https://github.com/toml-lang/toml/blob/master/README.md) file
+    that will either have the name `Project.toml` or `JuliaProject.toml`.
 
 Let's look at the current project file:
 ```
@@ -146,21 +130,136 @@ Let's look at the current project file:
 DataStructures = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 ```
 
-The `deps` table maps the name of a dependency to a unique identifier.
-A project file is a [TOML formatted](https://github.com/toml-lang/toml/blob/master/README.md) file
-  which records the dependency requirements of a project.
+The `deps` table lists all the direct dependencies for a project.
+It is a map from the name of a dependency to a UUID.
+The name corresponds to the name you will use to load and access the dependency
+    from within a Julia session.
+The UUID is used within Pkg and the code loading mechanism to reference dependencies.
 
+# Switching Projects
+
+Pkg commands always target the **active project**.
+You can set the active project by directing **`activate`** to a filesystem directory:
+
+```
+(jl_o9x6aA) pkg> activate ./Foo
+  Activating new environment at `~/Foo/Project.toml`
+
+(Foo) pkg> status
+      Status `~/Foo/Project.toml` (empty project)
+```
+
+The feedback tells you that this new project will be stored at the directory `~/Foo`.
+The Pkg REPL prompt will update to reflect the active project.
+We can also tell that we are targeting a new project because status tells us
+    that the project is empty.
+
+Pkg also supports temporary projects.
+They are useful when you want to create a project on the fly.
+You can create a temporary project with the `--temp` flag:
+
+```
+(Foo) pkg> activate --temp
+  Activating new environment at `/tmp/jl_o9x6aA/Project.toml`
+
+(jl_o9x6aA) pkg> 
+```
+
+Remember, thanks to intelligent caching, projects are extremely cheap to create.
+Use new projects as often as necessary.
 
 # Packages
 
-When you have declared all the dependcies you need
+At some point, you will want to make your code available to others.
+You can do this by creating a Pkg **package**.
+Recall that a project is the set of requirements needed for a piece of code to run.
+Then, a package is really just a specific kind of project.
+In addition to a normal project, a package also requires:
 
----
+1. a root module
+2. a name
+3. a uuid
 
-# todo
+Pkg requires the name of the package and the name of the root module to be the same.
+Additionally, it requires the root module to be stored at `src/<PACKAGE_NAME>.jl`
+    relative to the package's root directory.
 
-* Projects v Package
-* Package Structure
-* Project file
-* Manifest file
-* Built-in help
+# Creating a new package
+
+Let's walk through creating a new package.
+There exist a variety of packages to help with this, but I like using `PkgSkeleton`.
+
+First, create a temporary project so that we can install `PkgSkeleton`:
+
+```
+(@v1.6) pkg> activate --temp
+  Activating new environment at `/tmp/jl_XgtyFv/Project.toml`
+```
+
+Next, install and load `PkgSkeleton`:
+
+```
+(jl_XgtyFv) pkg> add PkgSkeleton
+<feedback omitted>
+
+julia> import PkgSkeleton
+```
+
+Use `generate` to create the package:
+
+```
+julia> PkgSkeleton.generate("ExamplePackage")
+<feedback omitted>
+```
+
+`PkgSkeleton` will create a directory where the package is stored.
+You will see that all the basic requirements for a package are satisfied:
+
+- a project file in the root of the directory
+- the project file specifies a name, a UUID, and a `deps` table
+- a root module stored at `src/ExamplePackage.jl`
+
+Notice the root module is initially empty.
+Let's modify it so that our new package has some functionality:
+
+```
+module ExamplePackage
+
+hello() = println("Hello World!")
+
+end # module
+```
+
+Finally, load and use the package:
+
+```
+(jl_XgtyFv) pkg> activate ./ExamplePackage/
+  Activating project at `~/ExamplePackage`
+
+julia> import ExamplePackage
+[ Info: Precompiling ExamplePackage [708cade6-8b63-4e43-a962-7a27faa63a21]
+
+julia> ExamplePackage.hello()
+Hello World!
+```
+
+# Pkg Help and Further Reading
+
+The Pkg REPL also ships with a built-in help system.
+
+Try asking it about the `add` command:
+```
+(@v1.6) pkg> ? add
+```
+
+Or ask for a synopsis of all commands:
+```
+(@v1.6) pkg> ?
+```
+
+You can also check out the [Pkg reference documentation](https://pkgdocs.julialang.org/v1.6/)
+    for more details.
+If you get stuck you can usually find someone to help you on 
+    [Julia's Discourse](https://discourse.julialang.org/)
+    or on StackOverflow using the `julia` tag.
+Happy packaging!

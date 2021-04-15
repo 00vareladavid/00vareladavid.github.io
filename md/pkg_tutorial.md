@@ -261,5 +261,5 @@ You can also check out the [Pkg reference documentation](https://pkgdocs.juliala
     for more details.
 If you get stuck you can usually find someone to help you on 
     [Julia's Discourse](https://discourse.julialang.org/)
-    or on StackOverflow using the `julia` tag.
+    or on [StackOverflow](https://stackoverflow.com) using the `julia` tag.
 Happy packaging!
